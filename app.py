@@ -7,7 +7,7 @@ def index():
     return "Hello, world!"
 
 @app.route("/user")
-def index():
+def user():
     return "Hello, Jochum!"
 
 if __name__ == "__main__":
