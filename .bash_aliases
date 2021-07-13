@@ -1,0 +1,1 @@
+alias dir=".deployers.sh"

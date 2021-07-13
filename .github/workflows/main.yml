@@ -1,10 +1,10 @@
-name: CI-SFTP
+name: CI-Digital-ocean
  
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ master ]
 #  pull_request:
 #    branches: [ main ]
  
@@ -20,13 +20,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
           
-      - name: SFTP Deploy
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.1
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
         with:
-          username: winqjochum
-          server: 104.248.89.121
-          port: 22 # default is 22
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
  
           
           # will put all file under this path
