@@ -23,7 +23,7 @@ jobs:
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
         with:
-          user: ${{ secrets.DIGITALOCEAN_USER_NAME }}
+          version: ${{ secrets.DIGITALOCEAN_USER_NAME }}
           token: ${{ secrets.SSH_PRIVATE_KEY }}
 
  
