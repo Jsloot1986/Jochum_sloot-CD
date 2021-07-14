@@ -16,8 +16,7 @@ jobs:
           KEY: ${{ secrets.SSHKEY }}
 
           scripts: |
-          cd var
-          cd www
+          cd var/www/
           mkdir py-project
           cd py-project
           git clone git@github.com/Jsloot1986/Jochum_sloot-CD.git
