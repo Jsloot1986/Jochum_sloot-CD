@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
       - name: action step
         id: hello
-        uses: 
+        uses: ./actions
         with:
           who-to-greet: 'Jochum Sloot'
       - name: Get the output time
