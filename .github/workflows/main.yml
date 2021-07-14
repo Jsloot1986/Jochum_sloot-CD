@@ -3,6 +3,20 @@ name: Deploy
 on: 
   push:
     branches: [master]
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: action step
+        id: hello
+        uses: actions/Jochum_sloot-CD
+        with:
+          who-to-greet: 'Jochum Sloot'
+      - name: Get the output time
+        run: echo "The time was ${{steps.hello.outputs.time}}"
 
 jobs:
   deploy:

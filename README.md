@@ -17,3 +17,25 @@ Ik denk dat ik erbijna ben maar mis misschien nog 1 of 2 stappen.
 # Benoem 3 problemen die je bent tegen gekomen en hoe je deze hebt opgelost
 
 # Andere opmerkingen die van belang zijn
+
+# Hello world docker action
+
+This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+
+## Inputs
+
+## `who-to-greet`
+
+**Required** The name of the person to greet. Default `"World"`.
+
+## Outputs
+
+## `time`
+
+The time we greeted you.
+
+## Example usage
+
+uses: actions/hello-world-docker-action@v1
+with:
+  who-to-greet: 'Mona the Octocat'
