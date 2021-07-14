@@ -1,31 +1,24 @@
 name: Deploy
 
-on: [push]
+on: 
+  push:
+    branches: [master]
 
 jobs:
-  build:
-
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
+      - name: Deploy Flask app
+        uses: appleboy/ssh-action@v0.1.2
+        with:
+          HOST: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          KEY: ${{ secrets.SSHKEY }}
 
-    - name: Copy repository contents via scp
-      uses: appleboy/scp-action@master
-      env:
-        HOST: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
-      with:
-        source: "~"
-        target: "/var/www/mywebsite"
-        
-    - name: Executing remote command
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
-        script: ls
+          scripts: |
+          cd var
+          cd www
+          mkdir py-project
+          cd py-project
+          git clone git@github.com/Jsloot1986/Jochum_sloot-CD.git
+          echo 'Deployment succesful to digital ocean'
