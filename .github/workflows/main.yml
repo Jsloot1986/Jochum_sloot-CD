@@ -17,11 +17,6 @@ jobs:
           who-to-greet: 'Jochum Sloot'
       - name: Get the output time
         run: echo "The time was ${{steps.hello.outputs.time}}"
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
       - name: Deploy Flask app
         uses: appleboy/ssh-action@v0.1.2
         with:
